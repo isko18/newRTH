@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static i18n %}
+<html lang="ru">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%  trans "Новый ритм" %}</title>
+    <link rel="icon" type="icon" href="{% static 'assets/img/logo.png' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/reset.css' %}">
+</head>
+
+<body>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'assets/js/index.js' %}"></script>
+</body>
+
+</html>

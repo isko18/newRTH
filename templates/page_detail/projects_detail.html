@@ -1,0 +1,73 @@
+{% extends 'homepage.html' %}
+{% block content %}
+<div class="cls"></div>
+    <div class="container project_head">
+        <div class=" projects_menu">
+            <div class="projects_menu__item">
+                <a class="projects_menu__item__btn">#проекты <i class="fas fa-chevron-right"></i></a>
+                <div class="projects_menu__item__content">
+                    {% for proj in projects_menus %}
+                    <a href="{{proj.get_absolute_url}}">{{proj.title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="projects_menu__item">
+                <a class="projects_menu__item__btn">#инициативы и мини проекты <i class="fas fa-chevron-right"></i>
+                </a>
+                <div class="projects_menu__item__content">
+                    {% for imp in inisiativMiniprojects_menu %}
+                    <a href="{{imp.get_absolute_url}}">{{imp.title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="projects_menu__item">
+                <a href="{% url 'gallery' %}" class="projects_menu__item__btn">#галерея </a>
+            </div>
+        </div>
+        <select name="lang" id="lang">
+            <option value="kg">KG</option>
+            <option value="ru">RU</option>
+        </select>
+
+    </div>
+    <!-- End Banner -->
+
+    <section class="projects">
+    <span class="block_head">#проекты</span>
+    <h1 class="head_text">НОВЫЙ РИТМ</h1>
+    <div class="container">
+        <div class="description">
+            <p><b>{{projects.title}}</b></p>
+            <p>{{projects.project_desc|safe}}</p>
+        </div>
+        <div class="container pro_blocks">
+            <div class="pro_blocks__left">
+                <div class="video_platform">
+                    <iframe src="{{projects.video}}" frameborder="0" allowfullscreen class="video_to_pro"></iframe>
+                </div>
+            </div>
+            <div class="pro_blocks__right">
+                <div class="pro_text">
+                    <h1>ЦЕЛЬ</h1><br>
+                    <p>{{projects.purpose}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container pro_blocks">
+            <div class="pro_blocks__left">
+                <div class="pro_text">
+                    <h1>УЧАСТНИКИ</h1><br>
+                    <p>{{projects.members}}</p>
+                </div>
+
+            </div>
+            <div class="pro_blocks__right">
+                <img src="{{projects.image.url}}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks_homepage/share_news.html' %}
+
+{% endblock content %}

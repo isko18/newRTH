@@ -1,0 +1,22 @@
+{% load static %}
+{% load static i18n %}
+<div class="container my-3">
+    <div class="list_menu_platform">
+        <a href="{% url 'cours_intro' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt=""
+                                                          class="img-icon"> {%  trans 'ВВЕДЕНИЕ' %}</a>
+        <a href="{% url 'cours_opros' courses.id %}"><img src="{% static '/img/icons/opros.png' %}" alt=""
+                                                          class="img-icon"> {% trans 'ОПРОС' %} </a>
+        <a href="{% url 'video' courses.id %}"><img src="{% static '/img/icons/video.png' %}" alt="" class="img-icon"> {% trans "Видео с обучениями" %}</a>
+        <a href="{% url 'worksheet' courses.id %}"><img src="{% static '/img/icons/video.png' %}" alt="" class="img-icon"> {%  trans "РАБОЧАЯ ТЕТРАДЬ" %} </a>
+        <a href="{% url 'gender' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans "ГЕНДЕР И ПОЛ" %}</a>
+        <a href="{% url 'discrimination' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans "Гендерная дискриминация и от чего она происходит" %}</a>
+        <a href="{% url 'gender_norms' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans "Гендерные нормы и от чего она происходит" %}</a>
+        <a href="{% url 'gender_norms_stereotypes' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans "Гендерный нормы и стереотипы" %}</a>
+        <a href="{% url 'gender_norm_quality' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans "Способы продвижения гендерного равенства и снижения гендерного насилия в вашем сообществе" %} </a>
+        <a href="{% url 'laws' courses.id %}"><img src="{% static '/img/icons/video.png' %}" alt="" class="img-icon">{% trans "Законы КР о гендерной политике" %}</a>
+        <a href="{% url 'statistics' courses.id %}"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans "Статистика ЦА и отдельно кр по Гендерному насилию" %}</a>
+        <a href="{% url 'test_course' courses.id  %}"><img src="{% static '/img/icons/test.png' %}" alt=""
+                                                          class="img-icon"> {% trans 'Тест' %}</a>
+        <a href="#"><img src="{% static '/img/icons/burger.png' %}" alt="" class="img-icon"> {% trans 'Поздравление' %}</a>
+    </div>
+</div>

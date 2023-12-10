@@ -1,0 +1,21 @@
+{% extends 'homepage.html' %} {% block content %}
+{% load static i18n %}
+<div class="cls"></div>
+  <div class="gallery_bg">
+    <div class="container">
+      <div class="rect">#галерея</div>
+      <p>{% trans "Здесь вы найдете подборку фотографий из различных проектов и мероприятий в которых Novi Ritm организовал и / или принял участие." %}</p>
+    </div>
+  </div>
+<div class="container" style="margin-left:20px">
+	<div class="gallery">
+		{% for gal in gallery %}
+		<a href="{{gal.image.url}}" class="gallery__item">
+			<img src="{{gal.image.url}}" alt="">
+		</a>
+		{% endfor %}
+	</div>
+</div>
+{% include 'blocks_homepage/share_news.html' %}
+
+<hr> {% endblock content %}

@@ -1,0 +1,31 @@
+{% load static %}
+{% load static i18n %}
+<section class="about">
+    <span class="block_head">#о_нас</span>
+    <h1 class="head_text">{% trans "Добро пожаловать в Новый Ритм!" %}</h1>
+    <div class="container main_blocks">
+        <div class="main_blocks__left">
+            <p>{{aboutus.aboutus_title_1|safe}}</p>
+        </div>
+        <div class="main_blocks__right">
+            <img src="{% static 'assets/img/logo_title.png' %}" alt="">
+        </div>
+    </div>
+    <div class="container main_blocks">
+        <div class="main_blocks__left">
+            <img src="{% static 'assets/img/Saly-32.svg' %}" alt="">
+        </div>
+        <div class="main_blocks__right">
+            <p>{{aboutus.aboutus_title_2|safe}}</p>
+        </div>
+    </div>
+    <h1 class="head_text">{% trans "Наше видение и цели" %}</h1>
+    <div class="container main_blocks">
+        <div class="main_blocks__left">
+            <p>{{aboutus.aboutus_title_3|safe}}</p>
+        </div>
+        <div class="main_blocks__right">
+            <img src="{% static 'assets/img/Saly-15.png' %}" alt="">
+        </div>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+{% extends 'homepage.html' %}
+{% load static i18n %}
+{% block content %}
+<div class="cls"></div>
+<div class="partner">
+    <div class="container">
+        <div class="rect">{% trans "#партнеры" %} / {{partners.title}}</div>
+        <select name="lang" id="lang">
+            <option value="kg">KG</option>
+            <option value="ru">RU</option>
+        </select>
+    </div>
+</div>
+<div class="partner_content">
+    <div class="container">
+
+        <!--Partners-->
+
+        <div class="df_partner">
+            <h2>{{partners.title}}</h2>
+            <img src="{{partners.logo.url}}" alt="" />
+        </div>
+        <p>
+            {{partners.part_desc|safe}}
+        </p> 
+
+        <!--Partners-->
+
+    </div>
+</div>
+{% include 'blocks_homepage/share_news.html' %}
+
+{% endblock content %}

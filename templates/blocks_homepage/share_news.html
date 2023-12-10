@@ -1,0 +1,16 @@
+{% load static %}
+{% load static i18n %}
+<section class="subs">
+    <div class="container sub">
+        <div>
+            <h1>{% trans "Подпишитесь на рассылку новостей" %}</h1>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Имя" />
+                <input type="email" placeholder="Email" />
+                <button type="submit">{% trans "Подписаться" %}<i class="fab fa-telegram-plane"></i></button>
+            </form>
+        </div>
+        <img src="{% static 'assets/img/Saly-26.png' %}" alt="">
+    </div>
+</section>

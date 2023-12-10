@@ -1,0 +1,82 @@
+{% load   i18n %}
+{% load static %}
+
+<header>
+    <div class="navbar">
+        <a href="{% url 'home' %}" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="logo"><span> {% trans "Новый ритм "%}</span></a>
+        <div class="navbar_menu">
+            <a href="{% url 'projects' %}" class="navbar_menu__item" >{% trans "Проекты" %}</a>
+            <a href="{% url 'partners' %}" class="navbar_menu__item">{% trans "Партнеры" %}</a>
+            <a href="{% url 'blog' %}" class="navbar_menu__item">{% trans "Блог" %}</a>
+            <a href="{% url 'join' %}" class="navbar_menu__item">{% trans "Присоединиться к нам" %}</a>
+            <a href="{% url 'donation' %}" class="navbar_menu__item">{% trans "Пожертвование" %}</a>
+            <a href="{% url 'education' %}" class="navbar_menu__item">{% trans "Обучение" %}</a>
+            <li> 
+                {% if user.is_authenticated %}
+                    <span>{{ user.username }}</span>
+                    <a href="{% url 'account_logout' %}"
+                    style="color: rgb(0, 0, 0); font-weight: 400; text-transform: uppercase;">
+                        {% trans "Выход" %}
+                    </a>
+                {% else %}
+                    <a href="{% url 'account_login' %}"
+                    style="color: rgb(0, 0, 0); font-weight: 400; text-transform: uppercase;">
+                        {% trans "Вход" %}
+                    </a>
+                    <a href="{% url 'account_signup' %}"
+                    style="color: rgb(0, 0, 0); font-weight: 400; text-transform: uppercase;">
+                        {% trans "Регистрация" %}
+                    </a>
+                {% endif %}
+            </li>
+        </div>
+        <div class="navbar_support">
+            <a href="{{settings.telegram}}" class="navbar_support__item"><i class="fab fa-telegram-plane"></i></a>
+            <a href="{{settings.instagram}}" class="navbar_support__item"><i class="fab fa-instagram"></i></a>
+            <a href="{{settings.facebook}}" class="navbar_support__item"><i class="fab fa-facebook-f"></i></a>
+            <a href="{{settings.twitter}}" class="navbar_support__item"><i class="fab fa-twitter"></i></a>
+            <a href="{{settings.youtube}}" class="navbar_support__item"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <div class="burger_menu">
+            <img src="{% static 'assets/img/icons/burger.png' %}" class="img-fluid">
+        </div>
+    </div>
+</header>
+<div class="cls"></div>
+<div class="container selectLang">
+    <!-- COM -->
+    <form style="position: absolute; top: 2rem; right: 7.75em; z-index: 10;" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select name="language" style="top: 50px; position: absolute; right: 0;" id="selectLang">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                        selected{% endif %}>
+                    {{ language.name_local }} ({{ language.code }})
+                </option>
+            {% endfor %}
+        </select>
+    </form> 
+    <!-- COM -->
+</div>
+
+<script>
+    const select = document.querySelector('#selectLang')
+
+    function changeLang (val) {
+
+        const href = window.location.href
+
+        const url = val === 'ru' ? href.split('en').join(val) : href.split('ru').join(val)
+
+        window.open(url, '_self')
+    }
+
+    select.addEventListener('change', e => {
+        const value = e.target.value
+        changeLang(value)
+    })
+</script>

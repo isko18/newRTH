@@ -1,0 +1,33 @@
+{% extends 'homepage_edu.html' %}
+{% load static %}
+{% load static i18n %}
+{% block content %}
+
+
+  <div class="platform">
+    <div class="container platform__section__head">
+      <h2>{{ courses.title }}</h2>
+      <a href="#">{% trans "Продолжить курс" %}</a>
+    </div>
+  </div>
+
+  <div class="container my-3">
+    <img src="{% static '/img/textLogo.png' %}" alt="" class="img-small" />
+    <p class="mw-75 py-3">
+      {% trans "Приветствуем вас в первом модуле онлайн-курса «Введение в права человека». На прохождение этого курса потребуется примерно 90 минут." %}
+    </p>
+    <span class="bg-primary">
+      {% trans "Когда будете готовы, нажмите кнопку" %} <a href="#" class="start">{% trans "«Начать»" %}</a>.
+    </span>
+  </div>
+
+    {% include 'list_menu_platform.html' %}
+
+    <div class="to_block">
+    <a href="introduction.html" class="title-and-icon">
+      <span>{% trans "ВВЕДЕНИЕ" %}</span>
+      <i class="fas fa-chevron-right next"></i>
+    </a>
+  </div>
+
+{% endblock content %}

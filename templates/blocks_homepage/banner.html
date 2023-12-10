@@ -1,0 +1,18 @@
+{% load static i18n %}
+<section class="welcome">
+    <div class="container">
+        <div class="df_blocks">
+            <div class="left_block">
+                <h1>{{aboutus.banner_title_1}}</h1>
+                <p>
+                    {{aboutus.banner_desc_1|safe}}
+                </p>
+                <form method="post" class="subscribe">
+                    {% csrf_token %}
+                    <input type="email" placeholder="Ваше email..." />
+                    <button type="submit">{% trans "Подписаться" %}<i class="fab fa-telegram-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

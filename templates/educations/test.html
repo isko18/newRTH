@@ -1,0 +1,85 @@
+{% extends 'homepage_edu.html' %}
+{% load static i18n %}
+{% load static %}
+{% block content %}
+    <div class="header_platform">
+        <div class="container">
+            <span>{{ courses.title }}</span>
+            <a href="{% url 'education' %}" class="close_platform">{% trans "Закрыть " %}<span>&times;</span></a>
+        </div>
+    </div>
+
+    <div class="container learn">
+        <div class="sidebar">
+            <div class="close-platform"><i class="fas fa-times"></i></div>
+            <div class="sidebar_head">
+                <div class="module">
+                    <h4>{{ courses.title }}</h4>
+                    <div class="progress">
+                        <div class="progress_line" style="width: 18%;"></div>
+                    </div>
+                    <p><span>18%</span> {% trans "ЗАВЕРШЕНО" %}</p>
+                </div>
+            </div>
+             {% include 'list_menu_platform.html' %}
+        </div>
+        <div class="platform_content">
+            <div class="to_block">
+                <a href="#" class="title-and-icon">
+                    <i class="fas fa-chevron-right prev"></i>
+                    <span>{% trans "НАЧАЛО" %}</span>
+                </a>
+            </div>
+
+            <div class="container my-3">
+                <div class="menu_platform"><i class="fas fa-bars" style="font-size: 20px;"></i></div>
+                <div class="title_header__platform">
+                    <div><span>{% trans "Урок 2 из 13" %}</span><br/>
+                        <h4>{% trans "опрос" %}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="d-flex-jcsb">
+                    <div>
+                        <h2>{{ test.title }}</h2>
+                    </div>
+                    <img src="../img/Saly-26.png" class="img-small" alt="">
+                </div>
+            </div>
+            <div class="hr my-3"></div>
+            <div class="opros">
+                <form method="post">
+                    {% csrf_token %}
+                        {% for i in question %}
+                            <form class="method">
+                            <input type="hidden" id="user_id" value="{{ request.user }}">
+                                <h3 data-text="Choose Your Language">{{ i.question }}</h3>
+                                <input type="hidden" name="question_id" value="{{ i.question }}">
+                                {% for answer in i.test_answer.all %}
+                                    <label data-text="JavaScript" class="rad">
+                                    <input id={{ i.id }} type="radio" name="answer"
+                                               value="{{ answer.answer }}"> {{ answer.answer }}
+                                    </label>
+                                {% endfor %}
+                            </form>
+                        {% endfor %}
+                    <button class ="send" type="submit">{% trans "Отправить" %}</button>
+                </form>
+            </div>
+
+
+            <div class="to_block my-3">
+                <a href="#" class="title-and-icon">
+                    <span>{% trans "УРОК 2" %}</span>
+                    <i class="fas fa-chevron-right next"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static '/js/platform.js' %}"></script>
+    <script src="{% static '/js/form2.js' %}"></script>
+
+{% endblock content %}

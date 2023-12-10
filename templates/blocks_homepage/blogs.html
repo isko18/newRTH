@@ -1,0 +1,16 @@
+{% load static %}
+{% load static i18n %}
+<section class="blogs">
+    <span class="block_head">{% trans "#блог" %}</span>
+    <div class="container">
+        <div class="blog_title"><img src="{% static 'assets/img/icons/ins.png' %}" alt=""></div>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-36ef764e-51d4-453d-ba5a-b31ab8d111db"></div>
+    </div>
+    
+    <a href="{% url 'blog' %}" class="more">
+        {% trans "Показать больше " %}
+        <img src="{% static 'assets/img/icons/galaxy.png' %}" alt="">
+    </a>
+
+</section>

@@ -1,0 +1,108 @@
+{% extends 'homepage_edu.html' %}
+{% load static %}
+{% load static i18n %}
+{% block content %}
+    <div class="header_platform">
+        <div class="container">
+            <span>{{ courses.title }}</span>
+            <a href="{% url 'education' %}" class="close_platform">{% trans "Закрыть" %} <span>&times;</span></a>
+        </div>
+    </div>
+
+    <div class="container learn">
+        <div class="sidebar">
+            <div class="close-platform"><i class="fas fa-times"></i></div>
+            <div class="sidebar_head">
+                <div class="module">
+                    <h4>{{ courses.title }}</h4>
+                    <div class="progress">
+                        <div class="progress_line" style="width: 18%;"></div>
+                    </div>
+                    <p><span>18%</span> {% trans "ЗАВЕРШЕНО" %}</p>
+                </div>
+            </div>
+             {% include 'list_menu_platform.html' %}
+        </div>
+        <div class="platform_content">
+            <div class="to_block">
+                <a href="#" class="title-and-icon">
+                    <i class="fas fa-chevron-right prev"></i>
+                    <span>{% trans "НАЧАЛО" %}</span>
+                </a>
+            </div>
+
+            <div class="in-platform">
+                <div class="container my-3">
+                    <div class="menu_platform"><i class="fas fa-bars" style="font-size: 20px;"></i></div>
+                    <div class="title_header__platform">
+                        <div><span>{% trans "Урок 3 из 13" %}</span><br/>
+                            <h4> {% trans "РАБОЧАЯ ТЕТРАДЬ" %}</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="d-flex-jcsb">
+                        <h2>{{ worksheet.title }}</h2>
+                         <p class="d-flex-jcsb">
+                        {{ worksheet.text}}
+                    </p>
+                        <img src="{% static '/img/Saly-16.png' %}" class="img-small" alt="">
+                         <p class="d-flex-jcsb">
+                        {{ worksheet.text}}
+                    </p>
+
+                    </div>
+                    <p class="t-area">
+                        {{ worksheet.text}}
+                    </p>
+                </div>
+                <div class="hr my-3"></div>
+
+                <div>
+                    <p class="t-area">
+                        {{ worksheet.text}}
+                    </p>
+                    <p class="t-area">
+                        {{ worksheet.description}}
+                    <p class="t-area">
+                        {{ worksheet.file}}
+                    </p>
+                    <p class="t-area">
+                        {{ worksheet.file}}
+                    </p>
+                    </p>
+
+                    <div class="hr my-3"></div>
+                    <div>
+                        <p class="t-area">
+                            {% trans "В этом курсе вы получите знания и навыки, необходимые для действий в защиту прав человека." %}
+                        </p>
+                        <p class="t-area">
+                            {% trans "Вы будете знакомиться с правами человека с помощью:" %}
+                        </p>
+                    </div>
+                    <div class="cards-e my-3">
+                        <a href="#"><img src="{% static '/img/mes.png' %}" alt=""></a>
+                        <a href="#"><img src="{% static '/img/link.png' %}" alt=""></a>
+                        <a href="#"><img src="{% static '/img/brs.png' %}" alt=""></a>
+                    </div>
+
+                </div>
+                <div class="hr my-3"></div>
+                <ul>
+
+                </ul>
+            </div>
+
+            <div class="to_block">
+                <a href="#" class="title-and-icon">
+                    <span>{% trans "УРОК 2" %}</span>
+                    <i class="fas fa-chevron-right next"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static '/js/platform.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'homepage.html' %}
+{% load static i18n %}
+{% load static %}
+{% block content %}
+<div class="cls"></div>
+    <div class="container project_head">
+        <div class=" projects_menu">
+            <div class="projects_menu__item">
+                <a class="projects_menu__item__btn">{% trans "#проекты" %} <i class="fas fa-chevron-right"></i></a>
+                <div class="projects_menu__item__content">
+                    {% for proj in projects_menus %}
+                    <a href="{{proj.get_absolute_url}}">{{proj.title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="projects_menu__item">
+                <a class="projects_menu__item__btn">{% trans "#инициативы и мини проекты" %} <i class="fas fa-chevron-right"></i>
+                </a>
+                <div class="projects_menu__item__content">
+                    {% for imp in inisiativMiniprojects_menu %}
+                    <a href="{{imp.get_absolute_url}}">{{imp.title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="projects_menu__item">
+                <a href="{% url 'gallery' %}" class="projects_menu__item__btn">{% trans "#галерея" %} </a>
+            </div>
+        </div>
+        <select name="lang" id="lang">
+            <option value="kg">KG</option>
+            <option value="ru">RU</option>
+        </select>
+
+    </div>
+    <!-- End Banner -->
+
+    <section class="projects">
+    <span class="block_head">{% trans "#проекты" %}</span>
+    <h1 class="head_text">{% trans "НОВЫЙ РИТМ" %}</h1>
+    <div class="container">
+        <div class="description">
+            <p><b>{{insminiproj.title}}</b></p>
+            <p>{{insminiproj.project_desc|safe}}</p>
+        </div>
+        <div class="container pro_blocks">
+            <div class="pro_blocks__left">
+                <div class="video_platform">
+                    <iframe src="{{insminiproj.video}}" frameborder="0" allowfullscreen class="video_to_pro"></iframe>
+                </div>
+            </div>
+            <div class="pro_blocks__right">
+                <div class="pro_text">
+                    <h1>{% trans "ЦЕЛЬ" %}</h1><br>
+                    <p>{{insminiproj.purpose}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container pro_blocks">
+            <div class="pro_blocks__left">
+                <div class="pro_text">
+                    <h1>{% trans "УЧАСТНИКИ" %}</h1><br>
+                    <p>{{insminiproj.members}}</p>
+                </div>
+
+            </div>
+            <div class="pro_blocks__right">
+                <img src="{{insminiproj.image.url}}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'blocks_homepage/share_news.html' %}
+
+{% endblock content %}

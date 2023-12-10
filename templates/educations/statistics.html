@@ -1,0 +1,96 @@
+{% extends 'homepage_edu.html' %}
+{% load static i18n %}
+{% load static %}
+{% block content %}
+    <div class="header_platform">
+        <div class="container">
+            <span>{{ courses.title }}</span>
+            <a href="{% url 'education' %}" class="close_platform">{% trans "Закрыть " %}<span>&times;</span></a>
+        </div>
+    </div>
+
+    <div class="container learn">
+        <div class="sidebar">
+            <div class="close-platform"><i class="fas fa-times"></i></div>
+            <div class="sidebar_head">
+                <div class="module">
+                    <h4>{{ courses.title }}</h4>
+                    <div class="progress">
+                        <div class="progress_line" style="width: 18%;"></div>
+                    </div>
+                    <p><span>18%</span> {% trans "ЗАВЕРШЕНО" %}</p>
+                </div>
+            </div>
+            {% include 'list_menu_platform.html' %}
+        </div>
+        <div class="platform_content">
+            <div class="to_block">
+                <a href="#" class="title-and-icon">
+                    <i class="fas fa-chevron-right prev"></i>
+                    <span>{% trans "НАЧАЛО" %}</span>
+                </a>
+            </div>
+
+            <div class="in-platform">
+                <div class="container my-3">
+                    <div class="menu_platform"><i class="fas fa-bars" style="font-size: 20px;"></i></div>
+                    <div class="title_header__platform">
+                        <div><span>{% trans "Урок 1 из 13" %}</span><br/>
+                            <h4> {% trans "ВВЕДЕНИЕ" %}</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="d-flex-jcsb">
+                        <h2>{{ statistic.title }}</h2>
+                        <img src="{% static '/img/Saly-16.png' %}" class="img-small" alt="">
+                    </div>
+                </div>
+                <div class="hr my-3"></div>
+
+                <div>
+                    <p class="t-area">
+                       {{ statistic.title }}
+                    </p>
+                    <p class="t-area">
+                        {{ statistic.description}}
+                    </p>
+                    <p class="t-area">
+                        {{ statistic.text}}
+                    </p>
+                    <p class="t-area">
+                        <img src="{{ statistic_image.image.url }}">
+                    </p>
+                     <p class="t-area">
+                         {% if course_image.image %}
+                        <img src="{{ course_image.image.url }}" class="img-fluid my-3" alt="">
+                    {% else %}
+                        <img src="" class="img-fluid my-3" alt="">
+                    {% endif %}
+                    </p>
+
+
+                    <p class="t-area"></p>
+
+                    <div class="my-3">
+
+                    </div>
+
+                    </div>
+
+
+                </div>
+
+
+            <div class="to_block">
+                <a href="#" class="title-and-icon">
+                    <span>{% trans "УРОК 2" %}</span>
+                    <i class="fas fa-chevron-right next"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static '/js/platform.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'homepage.html' %}
+{% load static i18n %}
+{% block content %}
+<div class="cls"></div>
+    <div class="edu"> 
+        <div class="container">
+            <div class="education_head">
+                <div class="projects_menu">
+                    <div class="projects_menu__item">
+                        <div class="projects_menu__item__btn">{% trans "#курс по гендеру" %} <i class="fas fa-chevron-right"></i></div>
+                        <div class="projects_menu__item__content">
+                            {% for i in edus %}
+                                <a href="{% url 'cours_detail' i.pk %}">{{ i.title }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="projects_menu__item">
+                        <a href="{% url 'education' %}">
+                            <div class="projects_menu__item__btn">
+                                #{{harassment.banner_title_1}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="rect">#{{harassment.banner_title_1}}</div>
+        </div>
+    </div>
+
+    <div class="edu_content">
+        <div class="container">
+            {{harassment.harassment_desc|safe}}
+        </div>
+
+    </div>
+    {% include 'blocks_homepage/share_news.html' %}
+
+{% endblock content %}

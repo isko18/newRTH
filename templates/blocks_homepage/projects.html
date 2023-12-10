@@ -1,0 +1,39 @@
+{% load static %}
+{% load static i18n %}
+<section class="projects">
+    <span class="block_head">{% trans "#проекты" %}</span>
+    <h1 class="head_text">{% trans "НОВЫЙ РИТМ" %}</h1>
+    <div class="container">
+        <div class="description">
+            <p><b><a href="{{projects.get_absolute_url}}">{{projects.title}}</a> </b></p>
+            <p>{{projects.project_desc|truncatewords:60|safe}}</p>
+        </div>
+        <div class="container pro_blocks">
+            <div class="pro_blocks__left">
+                <div class="video_platform">
+                    <iframe src="{{projects.video}}" frameborder="0" allowfullscreen class="video_to_pro"></iframe>
+                </div>
+            </div>
+            <div class="pro_blocks__right">
+                <div class="pro_text">
+                    <h1>{% trans "ЦЕЛЬ" %}</h1><br>
+                    <p>{{projects.purpose}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container pro_blocks">
+            <div class="pro_blocks__left">
+                <div class="pro_text">
+                    <h1>{% trans "УЧАСТНИКИ" %}</h1><br>
+                    <p>{{projects.members}}</p>
+                </div>
+
+            </div>
+            <div class="pro_blocks__right">
+                <img src="{{projects.image.url}}" alt="">
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'projects' %}" class="more">{% trans "Показать больше" %} <img src="{% static 'assets/img/icons/galaxy.png' %}" alt=""></a>
+</section>

@@ -1,0 +1,37 @@
+{% extends 'homepage.html' %} {% load static %} {% block content %}{% load static i18n %}
+<div class="cls"></div>
+<div class="blog">
+    <div class="container">
+        <div class="rect">{% trans "#блог" %}</div>
+    </div>
+</div>
+<section class="blogs">
+    <div class="container">
+        <div class="blog_title"><img src="{% static 'assets/img/icons/ins.png' %}" alt="" /></div>
+        <!-- code widget -->
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-36ef764e-51d4-453d-ba5a-b31ab8d111db"></div>
+        <!-- code widget -->
+    </div>
+    <hr />
+    <div class="container">
+        <div class="blog_title"><img src="{% static 'assets/img/fb.png' %}" alt="" /></div>
+        <!-- code widget -->
+        <!-- code widget -->
+    </div>
+    <hr />
+    <div class="container">
+        <div class="blog_title"><img src="{% static 'assets/img/rn.png' %}" alt="" /></div>
+        <!-- code widget -->
+        <div class="blog_cards">
+            {% for news_new in news %}
+            <a href="#" class="blog_cards__item">
+                <img src="{{news_new.img.url}}" alt="{{news_new.title}}" />
+            </a>
+            {% endfor %}
+        </div>
+        <!-- code widget -->
+    </div>
+</section>
+{% include 'blocks_homepage/share_news.html' %}
+{% endblock content %}

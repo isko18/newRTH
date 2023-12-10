@@ -1,0 +1,61 @@
+<footer>
+    {% load static %}
+    {% load static i18n %}
+    <div class="container footer">
+        <div class="footer_support">
+            <a href="{{settings.telegram}}" target="_blank" class="footer_support__item">
+            <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="{{settings.instagram}}" target="_blank" class="footer_support__item">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="{{settings.facebook}}" target="_blank" class="footer_support__item">
+            <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="{{settings.twitter}}" target="_blank" class="footer_support__item">
+            <i class="fab fa-twitter"></i>
+            </a>
+            <a href="{{settings.youtube}}" target="_blank" class="footer_support__item">
+            <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <div class="footer_menu">
+            <a href="{% url 'projects' %}" class="footer_menu__item">{% trans "Проекты" %}</a>
+            <a href="{% url 'partners' %}" class="footer_menu__item">{% trans "Партнеры" %}</a>
+            <a href="{% url 'blog' %}" class="footer_menu__item">{% trans "Блог" %}</a>
+            <a href="{% url 'join' %}" class="footer_menu__item">{% trans 'Присоединиться к нам' %}</a>
+            <a href="{% url 'donation' %}" class="footer_menu__item">{% trans "Пожертвование" %}</a>
+            <a href="{% url 'education' %}" class="footer_menu__item">{% trans "Обучение" %}</a>
+        </div>
+    </div>
+</footer>
+<div class="btn_info_fixed">
+    <div class="btn_info__content">
+        <a href="{{settings.address_link}}">
+        <i class="fas fa-map-marker-alt"></i>&nbsp;{{settings.address_text}} 
+        </a>
+        <a href="tel:{{settings.phone}}">
+        <i class="fas fa-phone-alt"></i>&nbsp;{{settings.phone}}
+        </a>
+        <a href="{{settings.email}}" target="_blank">
+        <i class="fas fa-envelope"></i>&nbsp;{{settings.email}}
+        </a>
+        <a href="{{settings.facebook}}" target="_blank">
+        <i class="fab fa-facebook"></i>&nbsp;@facebook
+        </a>
+        <a href="{{settings.instagram}}" target="_blank">
+        <i class="fab fa-instagram"></i>&nbsp;@instagram 
+        </a>
+        <a href="{{settings.youtube}}" target="_blank"> 
+        <i class="fab fa-youtube"></i>&nbsp;@youtube 
+        </a>
+        <a href="{{settings.twitter}}" target="_blank"> 
+        <i class="fab fa-twitter"></i>&nbsp;@twitter 
+        </a>
+        <a href="{{settings.telegram}}" target="_blank"> 
+        <i class="fab fa-telegram-plane"></i>&nbsp;@telegram
+        </a>
+        <div class="fix"><img src="{% static 'assets/img/icons/ex.png' %}" alt="" class="btn_info_exit"></div>
+    </div>
+    <img src="{% static 'assets/img/icons/btn-info.png' %}" class="btn_info">
+</div>
