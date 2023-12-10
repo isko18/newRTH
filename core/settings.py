@@ -98,8 +98,10 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "*"
+    "http://*",
+    "https://*",
 ]
+
 
 
 # Password validation
